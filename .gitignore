@@ -1,2 +1,8 @@
 # Исключаем файлы sh, iso и другие ненужные файлы
 *.iso
+milentos-source/src/*.o
+milentos-source/src/*.bin
+
+# Исключаем папки
+
+/.vscode/

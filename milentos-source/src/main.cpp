@@ -1,9 +1,34 @@
-#include "main.h"
+#include "fn/keyfn.h"
+#include "fn/vga.h"
+#include "fn/string.h"
+
+__attribute__((section(".multiboot")))
+const int multiboot_header[] = {
+    0x1BADB002,
+    0x0,
+    -(0x1BADB002)
+};
+
+
+
 
 extern "C" void kernel_main() {
-    video[0] = "h";
-    video[1] = "i";
-    video[2] = "!";
-    video[3] = "\0";
-    while(true);
+    clear_scr();
+    write("LeniteKernel started!\n\n");
+    char ckey = keyboard_gc();
+    
+    while(true) {
+        if (!ckey) continue;
+
+        if (ckey == '\n') {
+            enter_command();
+            write("> ");
+
+        }
+        else {
+            print_char(ckey);
+            add_char(ckey);
+        }
+    }    
+    
 }
