@@ -14,10 +14,11 @@ const int multiboot_header[] = {
 
 extern "C" void kernel_main() {
     clear_scr();
-    write("LeniteKernel started!\n\n");
-    char ckey = keyboard_gc();
+    write("LeniteKernel started!\n\n> ");
+    
     
     while(true) {
+        char ckey = keyboard_gc();
         if (!ckey) continue;
 
         if (ckey == '\n') {

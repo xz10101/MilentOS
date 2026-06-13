@@ -16,8 +16,7 @@ int strcmp(const char* a, const char* b) {
 
 void enter_command() {
     input_buffer[index_buffer] = '\0';
-    
-    write(input_buffer);
+
     write("\n");
     if (strcmp(input_buffer, " ")) {
         write("\n");
@@ -25,7 +24,7 @@ void enter_command() {
     
     else {
         write(input_buffer);
-        write("\n> ");
+        write("\n");
     }
 
 
